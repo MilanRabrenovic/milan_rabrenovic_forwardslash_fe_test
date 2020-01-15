@@ -1,0 +1,164 @@
+@font-face {
+  font-family: "butlerbold";
+  src: url("../fonts/butler_bold-webfont.woff2") format("woff2"),
+    url("../fonts/butler_bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "butlermedium";
+  src: url("../fonts/butler_medium-webfont.woff2") format("woff2"),
+    url("../fonts/butler_medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "latobold";
+  src: url("../fonts/lato-bold-webfont.woff2") format("woff2"), url("../fonts/lato-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "latomedium";
+  src: url("../fonts/lato-medium-webfont.woff2") format("woff2"),
+    url("../fonts/lato-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "latoregular";
+  src: url("../fonts/lato-regular-webfont.woff2") format("woff2"),
+    url("../fonts/lato-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open_sansregular";
+  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?2dmd1w");
+  src: url("../fonts/icomoon.eot?2dmd1w#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?2dmd1w") format("truetype"), url("../fonts/icomoon.woff?2dmd1w") format("woff"),
+    url("../fonts/icomoon.svg?2dmd1w#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ico-"],
+[class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-cart:before {
+  content: "\e900";
+}
+.ico-user:before {
+  content: "\e901";
+}
+.ico-chevron-down:before {
+  content: "\e902";
+}
+.ico-chevron-up:before {
+  content: "\e903";
+}
+.ico-chevron-right:before {
+  content: "\e904";
+}
+.ico-chevron-left:before {
+  content: "\e905";
+}
+.ico-arrow-right:before {
+  content: "\e906";
+}
+.ico-arrow-left:before {
+  content: "\e907";
+}
+.ico-star-regular:before {
+  content: "\e908";
+}
+.ico-star-solid:before {
+  content: "\e909";
+}
+.ico-check:before {
+  content: "\e90a";
+}
+.ico-external-link:before {
+  content: "\e90b";
+}
+.ico-envelope:before {
+  content: "\e90c";
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+  font-size: 100%;
+
+  @include min-screen(1340px) {
+    font-size: 100% !important;
+  }
+
+  @include screen(992px, 1339px) {
+    font-size: 90% !important;
+  }
+
+  @include screen(768px, 991px) {
+    font-size: 87% !important;
+  }
+
+  @include screen(640px, 767px) {
+    font-size: 85% !important;
+  }
+
+  @include screen(600px, 639px) {
+    font-size: 82% !important;
+  }
+
+  @include screen(480px, 599px) {
+    font-size: 80% !important;
+  }
+
+  @include screen(375px, 479px) {
+    font-size: 75% !important;
+  }
+
+  @include max-screen(374px) {
+    font-size: 73% !important;
+  }
+}
+body {
+  font-size: rem(16);
+  font-family: $font-primary-400;
+  color: $color-text;
+}
+
+a {
+  text-decoration: none;
+  @include prefixer(transition, all 0.2s ease-in-out, ('moz', 'webkit'));
+}

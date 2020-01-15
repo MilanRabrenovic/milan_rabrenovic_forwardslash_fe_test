@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include min-screen(576px) {
+    width: $container-width-sm;
+  }
+  @include min-screen(768px) {
+    width: $container-width-md;
+  }
+  @include min-screen(992px) {
+    width: $container-width-lg;
+  }
+  @include min-screen(1200px) {
+    width: $container-width-xl;
+  }
+
+  @include min-screen(1500px) {
+    width: $container-width;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

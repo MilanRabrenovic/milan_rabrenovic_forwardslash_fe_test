@@ -1,0 +1,54 @@
+.btn {
+  text-transform: uppercase;
+  display: inline-flex;
+  font-family: $font-primary-700;
+  font-size: rem(16);
+  color: $color-text;
+}
+
+.btn-main {
+  background: $white;
+  box-shadow: 1.8px 14.9px 43px 0 rgba(221, 204, 184, 0.45);
+  min-height: rem(65);
+  justify-content: center;
+  align-items: center;
+  padding: 0 rem(38) 0 rem(49);
+  letter-spacing: rem(4.5);
+}
+
+.btn-second {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary-700;
+  font-size: rem(16);
+  letter-spacing: rem(4.8);
+  color: #fffefe;
+  text-transform: uppercase;
+  background: #2f4061;
+  border: none;
+  width: rem(135);
+  height: rem(51);
+}
+
+.btn-filter {
+    min-height: rem(42);
+    min-width: rem(155);
+    border-radius: rem(40);
+    background: transparent;
+    border: solid 1px #ddccb8;
+    color: #a9836b;
+    font-size: rem(18);
+    font-family: $font-primary-400;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: rem(22);
+    text-transform: capitalize;
+
+    > .remove-filter {
+        display: inline-block;
+        height: 100%;
+        padding: rem(0 9.8);
+        font-size: rem(26);
+    }
+}

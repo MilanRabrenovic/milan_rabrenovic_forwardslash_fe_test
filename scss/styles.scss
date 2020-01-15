@@ -1,0 +1,17 @@
+// setup
+@import "base";
+@import "global/variables";
+@import "partials/reboot";
+@import "global/layout";
+@import "global/typography";
+
+
+// partials
+@import "partials/header";
+@import "partials/slick";
+@import "partials/buttons";
+@import "partials/form";
+@import "partials/product-table";
+
+// pages
+@import "pages/home";

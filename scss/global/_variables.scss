@@ -1,0 +1,29 @@
+// layout
+$container-width: 1440px;
+$container-width-xl: 1160px;
+$container-width-lg: 960px;
+$container-width-md: 720px;
+$container-width-sm: 540px;
+$container-width-xs: 0;
+$gutter: 30px;
+
+// fonts
+$titles-500: 'butlermedium';
+$titles-700: 'butlerbold';
+$font-primary-400: 'latoregular';
+$font-primary-500: 'latomedium';
+$font-primary-700: 'latobold';
+$font-second-400: 'open_sansregular';
+
+
+$box-shadow-default: 0 0 20px 0 rgba(221, 204, 184, 0.77);
+$box-shadow-scroll: 0 5px 20px 0 rgba(221, 204, 184, 0.90);
+
+// colors
+$header-links: #383649;
+$white: #fff;
+$color-gold: #a9836b;
+$color-gold-dark: #a67e64;
+$color-gold-darker: #a0765b;
+$color-text: #304061;
+$color-light-bg: #f5f2ee;

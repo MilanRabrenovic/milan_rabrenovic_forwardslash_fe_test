@@ -1,0 +1,366 @@
+.hero {
+  min-height: get-vw(609px);
+  position: relative;
+  display: flex;
+  background: $color-light-bg;
+  border-bottom: 4px solid #2f4061;
+  .slick-track,
+  .slick-list {
+    height: 100%;
+  }
+
+  .slick-dots {
+    position: absolute;
+    left: rem(55);
+    top: 50%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    @include prefixer(transform, translateY(-50%), ("moz", "webkit"));
+
+    li {
+      line-height: 1;
+      &:not(:last-of-type) {
+        margin-bottom: rem(20);
+      }
+
+      &.slick-active {
+        button {
+          width: rem(14);
+          height: rem(14);
+          background: #9b785f;
+        }
+      }
+    }
+
+    button {
+      font-size: 0;
+      width: rem(10);
+      height: rem(10);
+      background: #dbcdbc;
+      border-radius: 100%;
+      border: none;
+      padding: 0;
+      @include prefixer(transition, all 0.2s ease-in-out, ("moz", "webkit"));
+    }
+  }
+}
+
+.hero-title {
+  display: none;
+}
+
+.hero-img {
+  position: absolute;
+  right: 0;
+  min-width: 50.4vw;
+  height: 100%;
+
+  .img-holder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    img {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: top;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+.hero-slider {
+  height: 100%;
+  z-index: 11;
+  position: relative;
+
+  $arrow-size: rem(114);
+  .slick-arrow {
+    position: absolute;
+    bottom: 0;
+    border: none;
+    background: transparent;
+    z-index: 2;
+    padding: 0;
+    display: inline-flex;
+
+    > span {
+      display: inline-flex;
+      height: $arrow-size;
+      width: $arrow-size;
+      align-items: center;
+      justify-content: center;
+      @include prefixer(transition, all 0.4s ease-in-out, ("moz", "webkit"));
+      position: relative;
+
+      + span {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    background: #dbcdbc;
+    > span {
+      background-size: 43px auto;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-color: #dbcdbc;
+      z-index: 1;
+      &:first-of-type {
+        &:before {
+          content: "\e907";
+          font-family: "icomoon";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include prefixer(transform, translate(-50%, -50%), ("moz", "webkit"));
+          color: #ab866e;
+        }
+      }
+
+      + {
+        span {
+          right: 100%;
+          @include prefixer(transform, translateX(+10%), ("moz", "webkit"));
+          z-index: 1;
+        }
+      }
+    }
+
+    &:hover {
+      > span {
+        opacity: 1;
+        visibility: visible;
+        height: $arrow-size;
+        width: $arrow-size;
+
+        + span {
+          @include prefixer(transform, translateX(0%), ("moz", "webkit"));
+        }
+      }
+    }
+  }
+
+  .slick-next {
+    left: $arrow-size;
+
+    > span {
+      background-size: 43px auto;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-color: $white;
+      z-index: 1;
+
+      &:first-of-type {
+        &:before {
+          content: "\e906";
+          font-family: "icomoon";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include prefixer(transform, translate(-50%, -50%), ("moz", "webkit"));
+          color: #ab866e;
+        }
+      }
+
+      + span {
+        @include prefixer(transform, translateX(-10%), ("moz", "webkit"));
+        z-index: 1;
+      }
+    }
+
+    &:hover {
+      > span {
+        opacity: 1;
+        visibility: visible;
+        height: $arrow-size;
+        width: $arrow-size;
+
+        + span {
+          @include prefixer(transform, translateX(0%), ("moz", "webkit"));
+        }
+      }
+    }
+  }
+  .hero-slider__slide {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.hero-slide__image {
+  max-width: rem(263);
+  position: absolute;
+  left: calc(50% + #{rem(13)});
+  top: 50%;
+  z-index: 1;
+  @include prefixer(transform, translate(-50%, -50%) scale(1.1), ("moz", "webkit"));
+  @include prefixer(transition, all 0.8s ease-in-out, ("moz", "webkit"));
+  opacity: 0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.slick-active {
+  .hero-slide__image {
+    @include prefixer(transform, translate(-50%, -50%) scale(1), ("moz", "webkit"));
+    opacity: 1;
+  }
+}
+.hero-slide__content {
+  max-width: rem(494);
+  @include prefixer(transform, translateY(rem(-60)), ("moz", "webkit"));
+
+  .cta-holder {
+    padding-top: rem(62.4);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .btn {
+      margin-right: rem(10);
+    }
+    a {
+      &:not(.btn) {
+        min-height: rem(65);
+        font-family: $font-primary-500;
+        font-size: rem(20);
+        letter-spacing: 0.1px;
+        color: $color-gold-dark;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 rem(30);
+
+        > span {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.hero-slide__subtitle {
+  font-family: $font-primary-700;
+  font-size: rem(18);
+  line-height: 2;
+  color: $color-gold-darker;
+  margin-bottom: rem(27.8);
+  display: inline-block;
+  letter-spacing: rem(1.5);
+}
+
+.hero-slide__title {
+  font-family: $titles-500;
+  font-size: rem(80);
+  line-height: 1.1;
+  letter-spacing: rem(0.4);
+  color: $color-text;
+}
+
+// filter form
+
+.filter-form {
+  padding: rem(32 0 11);
+  background: $color-light-bg;
+}
+
+.filters-holder {
+  display: flex;
+  margin: 0 -15px;
+
+  .form-group {
+    padding: 0 15px;
+    flex: 1;
+  }
+  .form-control {
+    // flex: 1;
+  }
+}
+
+// mixed content boxes
+.boxes-section {
+  border-top: 4px solid #2f4061;
+}
+.content-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: row;
+
+  > .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefixer(transform, translate(-50%, -50%), ("moz", "webkit"));
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+.image-box__img {
+  max-width: 50vw;
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.text-box {
+  $midOffset: rem(91);
+  max-width: calc(50% + #{$midOffset});
+  background: $color-light-bg;
+  position: relative;
+  top: 50%;
+  padding: rem(72.2 62 85 89);
+
+  p {
+    font-size: rem(18);
+    line-height: 1.67;
+    letter-spacing: rem(0.45);
+    color: $color-text;
+  }
+}
+
+.text-box__title {
+    color: $color-gold;
+    font-family: $titles-700;
+    font-size: rem(60);
+    line-height: 1.47;
+    margin-bottom: rem(46);
+}
+
+.content-box--alt {
+  flex-direction: row-reverse;
+  .image-box__img {
+    order: 2;
+  }
+
+  > .container {
+    order: 1;
+    flex-direction: row;
+  }
+
+  .text-box {
+    background: #2f4061;
+
+    .text-box__title {
+        color: $white;
+    }
+
+    p {
+        color: $white;
+    }
+  }
+}

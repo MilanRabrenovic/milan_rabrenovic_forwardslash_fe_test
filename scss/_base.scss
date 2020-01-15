@@ -1,0 +1,156 @@
+@import "bourbon";
+
+@mixin clearfix {
+  overflow: hidden;
+  @include has-layout;
+}
+
+@mixin screen($res-min, $res-max) {
+    @media screen and (min-width: $res-min) and (max-width: $res-max) {
+        @content;
+    }
+}
+
+@mixin screen-orientation($res-min, $res-max, $orientation) {
+    @media screen and (min-width: $res-min) and (max-width: $res-max) and (orientation:$orientation) {
+        @content;
+    }
+}
+
+@mixin max-screen($res) {
+    @media screen and (max-width: $res) {
+        @content;
+    }
+}
+
+@mixin max-screen-orientation($res, $orientation) {
+    @media screen and (max-width: $res) and (orientation:$orientation) {
+        @content;
+    }
+}
+
+@mixin min-screen($res) {
+    @media screen and (min-width: $res) {
+        @content;
+    }
+}
+
+@mixin screen-height($res-min, $res-max) {
+    @media screen and (min-height: $res-min) and (max-height: $res-max) {
+        @content;
+    }
+}
+
+@mixin max-screen-height($res) {
+    @media screen and (max-height: $res) {
+        @content;
+    }
+}
+
+@mixin min-screen-height($res) {
+    @media screen and (min-height: $res) {
+        @content;
+    }
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+@mixin linear-gradient($from, $to) {
+    background: $to;
+    background: -moz-linear-gradient(top, $from 0%, $to 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+    background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+    background: -o-linear-gradient(top, $from 0%,$to 100%);
+    background: linear-gradient(to bottom, $from 0%,$to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})
+}
+@mixin bg-radial($start-colour, $start-position, $end-colour, $end-position) {
+    background: -moz-radial-gradient(center, ellipse cover, $start-colour $start-position, $end-colour $end-position);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, Colour-stop($start-position,$start-colour), Colour-stop($end-position,$end-colour));
+    background: -webkit-radial-gradient(center, ellipse cover, $start-colour $start-position,$end-colour $end-position);
+    background: -o-radial-gradient(center, ellipse cover, $start-colour $start-position,$end-colour $end-position);
+    background: -ms-radial-gradient(center, ellipse cover, $start-colour $start-position,$end-colour $end-position);
+    background: radial-gradient(ellipse at center, $start-colour $start-position,$end-colour $end-position);
+}
+// convert px to vw
+@function get-vw($target) {
+    $vw-context: (1440*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+}
+
+// convert px to rem
+$rem-base: 16px !default;
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+    @if $value == 0rem {
+        $value: 0;
+    }
+
+    @return $value;
+}
+
+@function rem($values, $base-value: $rem-base) {
+    $max: length($values);
+
+    @if $max == 1 {
+        @return convert-to-rem(nth($values, 1), $base-value);
+    }
+
+    $remValues: ();
+
+    @for $i from 1 through $max {
+        $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+    }
+
+    @return $remValues;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin placeholder-shown {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:placeholder-shown {
+        @content;
+    }
+}
+
